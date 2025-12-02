@@ -18,6 +18,24 @@ const client = new Client({
   ],
 });
 
+// Maintenance mode setup
+client.maintenanceMode = process.env.MAINTENANCE_MODE === "true";
+client.maintenanceType = process.env.MAINTENANCE_TYPE || "permanent";
+client.maintenanceEndTime = null;
+
+if (client.maintenanceMode && client.maintenanceType === "timed") {
+  const duration = parseInt(process.env.MAINTENANCE_DURATION || "10"); // minutes
+  client.maintenanceEndTime = Date.now() + duration * 60 * 1000;
+  logInfo(`🛠 Maintenance mode enabled for ${duration} minutes.`);
+
+  setTimeout(() => {
+    client.maintenanceMode = false;
+    client.maintenanceEndTime = null;
+    logInfo("✅ Maintenance mode disabled automatically.");
+  }, duration * 60 * 1000);
+}
+
+
 // Collection to store bot commands
 client.commands = new Collection();
 
