@@ -1,0 +1,46 @@
+{
+  "name": "bot-discord-starter",
+  "version": "1.0.0",
+  "description": "A modular and scalable Discord bot starter template using Discord.js",
+  "main": "index.js",
+  "scripts": {
+    "bot:start": "node index.js",
+    "bot:deploy": "node commands/utility/deploy-commands.js --global --trace-warnings",
+    "bot:delete": "node commands/utility/delete-commands.js --global --trace-warnings",
+    "dev": "nodemon index.js --trace-warnings",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "discord",
+    "discord-bot",
+    "discord.js",
+    "bot",
+    "template"
+  ],
+  "author": "Nexos Labs",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "fs": "^0.0.1-security",
+    "jest": "^29.7.0",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "eslint": "^9.6.0"
+  },
+  "engines": {
+    "node": ">=16.6.0"
+  },
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nexoslabs/discord-bot-starter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nexoslabs/discord-bot-starter/issues"
+  },
+  "homepage": "https://github.com/nexoslabs/discord-bot-starter#readme"
+}
